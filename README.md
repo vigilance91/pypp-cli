@@ -69,20 +69,20 @@ To solve this open the file Python36\include\pyconfig.h
 Then cntrl+F to seach for _DEBUG until this block is encountered
 
     #ifdef MS_COREDLL
-    #	ifndef Py_BUILD_CORE /* not building the core - must be an ext */
-    #		if defined(_MSC_VER)
-                /* So MSVC users need not specify the .lib file in
-                their Makefile (other compilers are generally
-                taken care of by distutils.) */
-    #			if defined(_DEBUG)
-    #				pragma comment(lib,"python36_d.lib")
-    #			elif defined(Py_LIMITED_API)
-    #				pragma comment(lib,"python3.lib")
-    #			else
-    #				pragma comment(lib,"python36.lib")
-    #			endif /* _DEBUG */
-    #		endif /* _MSC_VER */
-    #	endif /* Py_BUILD_CORE */
+    #ifndef Py_BUILD_CORE /* not building the core - must be an ext */
+    #if defined(_MSC_VER)
+    /* So MSVC users need not specify the .lib file in
+    their Makefile (other compilers are generally
+    taken care of by distutils.) */
+    #if defined(_DEBUG)
+    #pragma comment(lib,"python36_d.lib")
+    #elif defined(Py_LIMITED_API)
+    #pragma comment(lib,"python3.lib")
+    #else
+    #pragma comment(lib,"python36.lib")
+    #endif /* _DEBUG */
+    #endif /* _MSC_VER */
+    #endif /* Py_BUILD_CORE */
     #endif /* MS_COREDLL */
 
 Simply alter the _DEBUG block from
