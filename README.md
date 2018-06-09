@@ -67,33 +67,34 @@ when built/run in debug mode a linker error will occur.
 To solve this open the file Python36\include\pyconfig.h
 
 Then cntrl+F to seach for _DEBUG until this block is encountered
-```cpp
-#ifdef MS_COREDLL
-#	ifndef Py_BUILD_CORE /* not building the core - must be an ext */
-#		if defined(_MSC_VER)
-			/* So MSVC users need not specify the .lib file in
-			their Makefile (other compilers are generally
-			taken care of by distutils.) */
-#			if defined(_DEBUG)
-#				pragma comment(lib,"python36_d.lib")
-#			elif defined(Py_LIMITED_API)
-#				pragma comment(lib,"python3.lib")
-#			else
-#				pragma comment(lib,"python36.lib")
-#			endif /* _DEBUG */
-#		endif /* _MSC_VER */
-#	endif /* Py_BUILD_CORE */
-#endif /* MS_COREDLL */
-```
+
+
+    &#35;ifdef MS_COREDLL
+    &#35;	ifndef Py_BUILD_CORE /* not building the core - must be an ext */
+    &#35;		if defined(_MSC_VER)
+    &#35;            /* So MSVC users need not specify the .lib file in
+    &#35;            their Makefile (other compilers are generally
+    &#35;            taken care of by distutils.) */
+    &#35;			if defined(_DEBUG)
+    &#35;				pragma comment(lib,"python36_d.lib")
+    &#35;			elif defined(Py_LIMITED_API)
+    &#35;				pragma comment(lib,"python3.lib")
+    &#35;			else
+    &#35;				pragma comment(lib,"python36.lib")
+    &#35;			endif /* _DEBUG */
+    &#35;		endif /* _MSC_VER */
+    &#35;	endif /* Py_BUILD_CORE */
+    &#35;endif /* MS_COREDLL */
+
 Simply alter the _DEBUG block from
 
-    #			if defined(_DEBUG)
-    #				pragma comment(lib,"python36_d.lib")
+    &#35;if defined(_DEBUG)
+    &#35;	pragma comment(lib,"python36_d.lib")
 
 to this
 
-    #			if defined(_DEBUG)
-    #				pragma comment(lib,"python36.lib")
+    &#35;if defined(_DEBUG)
+    &#35;	pragma comment(lib,"python36.lib")
 
 save the file and things will be good to go from here.
 
