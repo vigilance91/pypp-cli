@@ -190,7 +190,7 @@ add the desired C++ includes and the following main function.
     
 Or just copy this projects application main and modify for personal use.
 
-After being building, the pyConsoleApp can be then accessed through the command line by first navigating
+After being building, the application can be then accessed through the command line by first navigating
 to the build directory (either release or debug) in the projects x64 folder.
 
 Before you can execute the program, a copy of python36.dll and all application python scripts,
@@ -290,17 +290,11 @@ and distributed as is.
 
 Similar projects for various platforms can also be found here
 
-* [pyConsoleAppMT]()   a multi-threaded python console application
-* [cpySerializer]()   a C++ python console application for serialization of JSON and/or XML files
-* [pxpy]()   a modern C++ Object Oriented library for the C python interface
-* [pypxParser]()     python package containing the defaco standard px parser module
-* [pxParser]()   a trivial C++ console application implementing pypxParser
-* [rpgAlpha]()  a rpg game built using DirectX10, python and the px engine
-
 
 ---
 
 ## Official Developer Reference
-[pyConsoleApp Reference]()
+
+[pypp Reference]()
 
 ---
