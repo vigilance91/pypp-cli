@@ -7,6 +7,7 @@
 ///@brief Defines the entry point for the console application.
 ///@note Due to a bug in the Python Source, the C API can not call or import any code which accesses the thread library. This should hopefully be addressed in future releases of Python.
 ///
+//--------------------------------------------------------------
 #ifndef PYPP_CLI_MAIN
 #define PYPP_CLI_MAIN
 //--------------------------------------------------------------
